@@ -2,7 +2,7 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link ,NavLink } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -40,7 +40,7 @@ function Header() {
           </ul>
         </div>
       </div>
-      <button className='btn btn-dark mx-4'>Cart</button>
+      <button className='btn btn-dark mx-4' onClick={()=>{props.onOpen()}}>Cart</button>
     </nav>
   )
 }
