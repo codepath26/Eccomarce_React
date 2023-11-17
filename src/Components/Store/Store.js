@@ -1,6 +1,7 @@
 import React from "react";
 import Product from "./Product";
 
+
 const products = [
   { 
     id :1,
@@ -58,6 +59,7 @@ const products = [
 ];
 
 function Store() {
+
   return   <div className="container text-center">
           <div className="row">
 
