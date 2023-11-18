@@ -1,11 +1,11 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link ,NavLink } from "react-router-dom";
-import { useProduct } from '../../Context/ProductContext';
+import { useProduct } from '../../Context/CartContext';
 
 function Header(props) {
-  const{productsDetails } = useProduct();
-   const totalNumber = productsDetails.products.reduce((acc , product)=>{
+  const{cartDetails } = useProduct();
+   const totalNumber = cartDetails.products.reduce((acc , product)=>{
     return acc + product.quantity;
    } ,0);
    console.log("total number",totalNumber);

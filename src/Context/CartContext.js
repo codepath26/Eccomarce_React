@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 
 
-const ProductContext = createContext({
+const CartContext = createContext({
   products : [],
   totalPrice : 0,
   addProduct : (product)=>{},
@@ -55,8 +55,8 @@ const reducer = (state , action)=>{
 
 }
 
-const ProductProvider = ({children})=>{
-  const [productsDetails , dispatch] = useReducer(reducer , initialState);
+const CartProvider = ({children})=>{
+  const [cartDetails , dispatch] = useReducer(reducer , initialState);
 
  const addProduct = (product)=>{
   dispatch({
@@ -71,17 +71,17 @@ const ProductProvider = ({children})=>{
   })
  }
   return(
-    <ProductContext.Provider value={{productsDetails , addProduct , removeProduct}}>
+    <CartContext.Provider value={{cartDetails , addProduct , removeProduct}}>
       {
         children
       }
-    </ProductContext.Provider>
+    </CartContext.Provider>
   )
 }
 
 
-export default ProductProvider;
+export default CartProvider;
 
 export function useProduct (){
-   return useContext(ProductContext); 
+   return useContext(CartContext); 
 }
