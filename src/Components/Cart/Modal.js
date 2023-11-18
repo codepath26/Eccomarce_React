@@ -28,7 +28,7 @@ function Modal(props) {
           </tbody>
         </table>
         <hr />
-        <div className="border border-success d-flex justify-content-between fs-3 fw-bolder">
+        <div className=" d-flex justify-content-between fs-3 fw-bolder">
           <span>Total Price</span>{console.log(productsDetails.totalPrice)}
           <span>₹{productsDetails.totalPrice}</span>
         </div>

@@ -60,7 +60,7 @@ const products = [
 
 function Store() {
 
-  return   <div className="container text-center">
+  return   <div className="container text-center mb-5">
           <div className="row">
 
       {

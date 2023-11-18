@@ -10,9 +10,9 @@ function Header(props) {
    } ,0);
    console.log("total number",totalNumber);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 left-0 w-100">
       <div className="container">
-        <Link className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="#">
           Your Logo
         </Link>
         <button
@@ -41,6 +41,11 @@ function Header(props) {
             <li className="nav-item">
               <NavLink className={({isActive})=>`nav-link ${isActive ? "text-primary" : ""}`} to="store">
                 Store
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className={({isActive})=>`nav-link ${isActive ? "text-primary" : ""}`} to="contact">
+                Contactus
               </NavLink>
             </li>
           </ul>
