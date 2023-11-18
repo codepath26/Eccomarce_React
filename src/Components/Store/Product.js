@@ -12,7 +12,7 @@ function Product({ product }) {
 
   return (
     <>
-      <div className="col-lg-4 col-md-4 col-sm-4 col-12 d-flex flex-column align-item-center mt-4 ">
+      <div className="col-lg-4 col-md-4 col-sm-4 col-12 d-flex flex-column align-item-center mt-4  ">
         <div className="fs-4">{title}</div>
         <div className=" my-1">
           <img className="img-fluid" src={imageUrl} alt="product" />

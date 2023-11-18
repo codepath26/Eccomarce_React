@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function About() {
   return (
-    <div>
-      about
-    </div>
-  )
+   <h1 className="mt-5">dfds</h1>
+  );
 }
 
 export default About;
