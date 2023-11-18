@@ -1,9 +1,9 @@
 import React from "react";
-import { useProduct } from "../../Context/ProductContext";
+import { useProduct } from "../../Context/CartContext";
 
 function Modal(props) {
-  const { productsDetails,removeProduct } = useProduct();
-  console.log(productsDetails);
+  const { cartDetails,removeProduct } = useProduct();
+  console.log(cartDetails);
   return (
     <>
       <div className="w-50 position-absolute top-50 start-50 translate-middle bg-light border rounded z-3 p-2 table-responsive">
@@ -17,7 +17,7 @@ function Modal(props) {
             </tr>
           </thead>
           <tbody>
-            {productsDetails.products.map((product) => (
+            {cartDetails.products.map((product) => (
               <tr key={product.id}>
                 <td>{product.title}</td>
                 <td>{product.price}</td>
@@ -29,8 +29,8 @@ function Modal(props) {
         </table>
         <hr />
         <div className=" d-flex justify-content-between fs-3 fw-bolder">
-          <span>Total Price</span>{console.log(productsDetails.totalPrice)}
-          <span>₹{productsDetails.totalPrice}</span>
+          <span>Total Price</span>{console.log(cartDetails.totalPrice)}
+          <span>₹{cartDetails.totalPrice}</span>
         </div>
         <div className="p-2 float-end my-2">
           <button

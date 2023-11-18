@@ -7,6 +7,8 @@ import Home from "./Components/Home/Home";
 import Store from "./Components/Store/Store";
 import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./Components/ContactUs/Contact";
+import Details from  './Components/Details/Deatils'
+
 // there are three method to used....
 // import Header from "./Components/Header/Header";
 
@@ -31,6 +33,10 @@ import Contact from "./Components/ContactUs/Contact";
             {
               path: "contact",
               element: <Contact />,
+            },
+            {
+              path: "details/:id",
+              element: <Details/>,
             },
           ],
         },
