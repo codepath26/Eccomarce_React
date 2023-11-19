@@ -29,7 +29,7 @@ function SignUpModal(props) {
         );
         console.log(response);
         console.log("signu",response.data.idToken)
-        logginHandler(response.data.idToken)
+        // logginHandler(response.data.idToken)
         navigate('/login');
       } catch (err) {
         console.log("err",err);

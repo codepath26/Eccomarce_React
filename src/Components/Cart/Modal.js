@@ -1,9 +1,25 @@
-import React from "react";
+import React, {  useEffect } from "react";
 import { useProduct } from "../../Context/CartContext";
+import axios from "axios";
 
 function Modal(props) {
   const { cartDetails,removeProduct } = useProduct();
   console.log(cartDetails);
+
+  
+  // Render the data using the crud crud api 
+  
+  useEffect (()=>{
+    const email = localStorage.getItem('email');
+    let cleanedEmail = email.replace(/[@.]/g, '');
+    const getData = async()=>{
+    const response = await axios.get(`${process.env.REACT_APP_CRUD_CRUD_URL}/cart${cleanedEmail}`);
+    console.log("this is never",response.data);
+    cartDetails.products = response.data;
+    }
+    getData();
+  },[]);
+
   return (
     <>
       <div className="w-50 position-absolute top-50 start-50 translate-middle bg-light border rounded z-3 p-2 table-responsive">

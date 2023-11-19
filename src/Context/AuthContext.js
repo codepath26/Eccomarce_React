@@ -5,7 +5,7 @@ const AuthContext = createContext({
   userIsLoggedIn : false,
   logginHandler : (token)=>{},
   logoutHandler : ()=>{},
-  onUserLogin : ()=>{}
+  onUserLogin : ()=>{},
 });
 
 

@@ -13,6 +13,7 @@ function LoginModal(props) {
   };
   const onLogin = async (e) => {
     e.preventDefault();
+    localStorage.setItem('email' , email);
     const user = {
       email: email,
       password: password,
