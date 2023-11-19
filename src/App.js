@@ -14,6 +14,7 @@ import ProductsProvider from "./Context/ProductsContext";
 
 function App() {
   const [showCart , setShowCart] = useState(false);
+  // const [isLoggedIn,setIsLoggedIn ] = useState(false);
   const onHideCart = ()=>{
     setShowCart(false);
   }
@@ -28,7 +29,6 @@ function App() {
       {showCart && <Cart onClose ={onHideCart} />}
       <Outlet/>
       <Footer/>
-
     </ProductsProvider>
     </CartProvider>
   );
