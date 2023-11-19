@@ -8,7 +8,10 @@ import Store from "./Components/Store/Store";
 import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./Components/ContactUs/Contact";
 import Details from  './Components/Details/Deatils'
-import AuthForm from "./Components/Auth/AuthForm";
+// import AuthForm from "./Components/Auth/AuthForm";
+import LoginModal from "./Components/Overlays/LoginModal";
+import SignUpModal from "./Components/Overlays/SignUpModal";
+// import Welcome from "./Components/Welcome/Welcome";
 // import AuthForm from "./Components/Auth/AuthForm";
 
 // there are three method to used....
@@ -20,14 +23,17 @@ import AuthForm from "./Components/Auth/AuthForm";
           element:<App />,
           children: [
             {
-              path: "login",
-              element: <AuthForm/>,
-            },
-            {
-              path: "home",
+              path: "",
               element: <Home/>,
             },
-
+            {
+              path: "login",
+              element: <LoginModal/>,
+            },
+            {
+              path: "signup",
+              element: <SignUpModal/>,
+            },
             {
               path: "about",
               element: <About />,
@@ -44,6 +50,7 @@ import AuthForm from "./Components/Auth/AuthForm";
               path: "details/:id",
               element: <Details/>,
             },
+           
           ],
         },
       ]);
