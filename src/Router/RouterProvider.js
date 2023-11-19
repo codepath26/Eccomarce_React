@@ -13,6 +13,7 @@ import Signup from "../Components/Auth/Signup";
 import { useAuthContext } from "../Context/AuthContext";
 function RoutesProvider() {
   const {userIsLoggedIn} = useAuthContext();
+  console.log("From provider",userIsLoggedIn);
   const router = createBrowserRouter([
     {
       path: "",
@@ -28,7 +29,7 @@ function RoutesProvider() {
         },
         {
           path: "resetpassword",
-          element: !userIsLoggedIn ? <Navigate to="/login" /> : <ForgotPass/> 
+          element: userIsLoggedIn ? <Navigate to="/login" /> : <ForgotPass/> 
         },
         {
           path: "signup",
@@ -36,19 +37,19 @@ function RoutesProvider() {
         },
         {
           path: "about",
-          element: !userIsLoggedIn ? <Navigate to="/login" /> : <About />,
+          element: userIsLoggedIn ?  <About />:<Navigate to="/login" />,
         },
         {
           path: "store",
-          element:!userIsLoggedIn ? <Navigate to="/login" /> :  <Store />,
+          element:userIsLoggedIn ?    <Store />:<Navigate to="/login" />,
         },
         {
           path: "contact",
-          element:!userIsLoggedIn ? <Navigate to="/login" /> :  <Contact />,
+          element:userIsLoggedIn ?   <Contact />:<Navigate to="/login" />,
         },
         {
           path: "details/:id",
-          element: !userIsLoggedIn ? <Navigate to="/login" /> :  <Details/>,
+          element: userIsLoggedIn ?  <Details/>:<Navigate to="/login" />,
         },
         {
           path: "*",
