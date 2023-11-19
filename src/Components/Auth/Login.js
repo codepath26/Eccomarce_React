@@ -2,7 +2,7 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import LoginModal from '../Overlays/LoginModal';
 
-function Signup(props) {
+function Login(props) {
 
   const portalElement = document.getElementById('overlays');
   return (
@@ -15,4 +15,4 @@ function Signup(props) {
   )
 }
 
-export default Signup;
+export default Login;
