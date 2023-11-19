@@ -24,7 +24,8 @@ function LoginModal(props) {
       );
       console.log("Login response",response);
       onUserLogin();
-      logginHandler(response.data.idToken)
+      logginHandler(response.data.idToken);
+   
       navigate('/');
     } catch (err) {
       console.log(err);

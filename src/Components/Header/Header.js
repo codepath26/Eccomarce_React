@@ -6,13 +6,15 @@ import { useAuthContext } from "../../Context/AuthContext";
 
 function Header(props) {
   const { cartDetails } = useProduct();
-  const { logoutHandler, userIsLoggedIn } = useAuthContext();
+  const {  logoutHandler, userIsLoggedIn } = useAuthContext();
+
+ 
 
   const navigate = useNavigate();
   const totalNumber = cartDetails.products.reduce((acc, product) => {
     return acc + product.quantity;
   }, 0);
-  console.log("total number", totalNumber);
+  // console.log("total number", totalNumber);
   const onLogOut = () => {
     logoutHandler();
     navigate("/login");
@@ -90,25 +92,24 @@ function Header(props) {
         </button>
       )}
       {userIsLoggedIn && (
-        <Link
-          to="/resetpassword"
-          className="btn btn-primary"
-        >
+        <Link to="/resetpassword" className="btn btn-primary">
           Forgot Password
         </Link>
       )}
-     {userIsLoggedIn &&  <button
-        className="btn btn-dark mx-4 position-relative"
-        onClick={() => {
-          props.onOpen();
-        }}
-      >
-        Cart{" "}
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {totalNumber}
-          <span className="visually-hidden">unread messages</span>
-        </span>
-      </button>}
+      {userIsLoggedIn && (
+        <button
+          className="btn btn-dark mx-4 position-relative"
+          onClick={() => {
+            props.onOpen();
+          }}
+        >
+          Cart{" "}
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {totalNumber}
+            <span className="visually-hidden">unread messages</span>
+          </span>
+        </button>
+      )}
     </nav>
   );
 }
