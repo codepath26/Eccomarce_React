@@ -9,6 +9,7 @@ import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./Components/ContactUs/Contact";
 import Details from  './Components/Details/Deatils'
 import AuthForm from "./Components/Auth/AuthForm";
+// import AuthForm from "./Components/Auth/AuthForm";
 
 // there are three method to used....
 // import Header from "./Components/Header/Header";
@@ -16,11 +17,11 @@ import AuthForm from "./Components/Auth/AuthForm";
       const router = createBrowserRouter([
         {
           path: "",
-          element: <AuthForm/>,
+          element:<App />,
           children: [
             {
-              path: "",
-              element:<App />,
+              path: "login",
+              element: <AuthForm/>,
             },
             {
               path: "home",
