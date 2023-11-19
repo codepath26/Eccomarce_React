@@ -7,6 +7,7 @@ import { useState } from "react";
 import Footer from "./Components/Footer/Footer";
 import ProductsProvider from "./Context/ProductsContext";
 import AuthContextProvider from "./Context/AuthContext";
+import Signup from "./Components/Auth/Signup";
 
    //this is the kind mistack which i made i used to render elements into the header so that the element is not show into the web pade don't do the next time 
                   //  <Header>
@@ -26,22 +27,10 @@ function App() {
     <AuthContextProvider>
     <CartProvider>
       <ProductsProvider>
-                    {/* Conditionally render Header and Footer based on the route */}
-                    {window.location.pathname !== '/login' && window.location.pathname !== '/signup' && (
-              <>
-                <Header onOpen={onShowCart} />
-                {showCart && <Cart onClose={onHideCart} />}
-              </>
-            )}
-
-            <Outlet />
-            
-            {/* Conditionally render Footer based on the route */}
-            {window.location.pathname !== '/login' && window.location.pathname !== '/signup' && <Footer />}
-      {/* <Header onOpen={onShowCart}/>  */}
-      {/* {showCart && <Cart onClose ={onHideCart} />} */}
-      {/* <Outlet/> */}
-      {/* <Footer/> */}
+      <Header onOpen={onShowCart}/> 
+      {showCart && <Cart onClose ={onHideCart} />}
+      <Outlet/>
+      <Footer/>
     </ProductsProvider>
     </CartProvider>
     </AuthContextProvider>

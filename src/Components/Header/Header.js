@@ -1,18 +1,24 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useProduct } from "../../Context/CartContext";
 import { useAuthContext } from "../../Context/AuthContext";
 
 function Header(props) {
   const { cartDetails } = useProduct();
-  const {logoutHandler} = useAuthContext();
+  const {logoutHandler ,userIsLoggedIn} = useAuthContext();
+    const navigate = useNavigate();
   const totalNumber = cartDetails.products.reduce((acc, product) => {
     return acc + product.quantity;
   }, 0);
   console.log("total number", totalNumber);
+  const onLogOut = ()=>{
+    logoutHandler();
+    navigate('/login');
+    
+  }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 left-0 w-100">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 left-0 w-100 z-1">
       <div className="container">
         <Link className="navbar-brand" to="#">
           Your Logo
@@ -74,10 +80,7 @@ function Header(props) {
         </div>
       </div>
 
-      <Link className="btn btn-primary" to="/login">
-        Login
-      </Link>
-      <button onClick={()=>logoutHandler()} className="btn btn-primary mx-1">Logout</button>
+     { !userIsLoggedIn  ? <Link className="btn btn-primary" to="/login">Login</Link> : <button onClick={onLogOut} className="btn btn-primary mx-1">Logout</button>}
       <button
         className="btn btn-dark mx-4 position-relative"
         onClick={() => {
