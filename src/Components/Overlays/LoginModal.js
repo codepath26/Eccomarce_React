@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../Context/AuthContext";
 
 function LoginModal(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const {onUserLogin ,logginHandler} =useAuthContext();
   const navigate = useNavigate();
   const closeOverlay = () => {
     navigate("/");
@@ -22,6 +23,8 @@ function LoginModal(props) {
         user
       );
       console.log("Login response",response);
+      onUserLogin();
+      logginHandler(response.data.idToken)
       navigate('/');
     } catch (err) {
       console.log(err);
@@ -32,7 +35,7 @@ function LoginModal(props) {
       <div className="w-100 vh-100  d-flex justify-content-center align-items-center bg-dark bg-opacity-50 z-2">
         <div className="w-50">
           <form
-            onClick={onLogin}
+            onSubmit={onLogin}
             className="border border-success w-50 m-auto p-3 rounded z-3 bg-light position-relative"
           >
             <button
@@ -78,12 +81,7 @@ function LoginModal(props) {
               >
                 Create new account
               </Link>
-              <Link
-                to="/resetpassword"
-                className="d-block link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mt-1"
-              >
-                Forgot Password
-              </Link>
+              
             </div>
           </form>
         </div>
