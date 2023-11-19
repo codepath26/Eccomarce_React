@@ -11,7 +11,7 @@ function Home() {
               Get You Leteast Album
             </h2>
             <p className="border border-primary rounded-circle text-center d-inline-block p-3 mt-2 ">
-              <i class="fa-solid fa-play"></i>
+              <i className="fa-solid fa-play"></i>
             </p>
           </div>
         </div>

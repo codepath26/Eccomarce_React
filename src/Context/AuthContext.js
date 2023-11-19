@@ -15,8 +15,10 @@ export const useAuthContext = ()=>{
 }
 
 const AuthContextProvider = (props)=>{
+  const localToken = localStorage.getItem("token");
+
   const [token ,setToken] = useState(null);
-  const [userIsLoggedIn ,setUserIsLoggedIn] = useState(false);
+  const [userIsLoggedIn ,setUserIsLoggedIn] = useState(localToken); // this is not reinitialzed so that we don't need worry about that // this is help full i don't idea onthis bro but remember this bro
 
  
 
@@ -24,6 +26,7 @@ const AuthContextProvider = (props)=>{
   const logginHandler = (token)=>{
     console.log("setting  the tocke" , token)
     setToken(token);
+    localStorage.setItem('token' , token);
     
   }
   const logoutHandler = ()=>{
