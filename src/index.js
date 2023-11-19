@@ -8,6 +8,7 @@ import Store from "./Components/Store/Store";
 import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./Components/ContactUs/Contact";
 import Details from  './Components/Details/Deatils'
+import AuthForm from "./Components/Auth/AuthForm";
 
 // there are three method to used....
 // import Header from "./Components/Header/Header";
@@ -15,10 +16,14 @@ import Details from  './Components/Details/Deatils'
       const router = createBrowserRouter([
         {
           path: "",
-          element: <App />,
+          element: <AuthForm/>,
           children: [
             {
               path: "",
+              element:<App />,
+            },
+            {
+              path: "home",
               element: <Home/>,
             },
 

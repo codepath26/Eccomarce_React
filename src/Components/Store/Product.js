@@ -1,6 +1,6 @@
 import React from "react";
 import { useProduct } from "../../Context/CartContext";
-import { NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function Product({ product }) {
   const { title, price, imageUrl } = product;
@@ -29,9 +29,9 @@ function Product({ product }) {
           >
             Add to Cart
           </button>
-          <NavLink className="btn btn-sm btn-primary mx-1" to={`/details/${product.id}`}  >
+          <Link className="btn btn-sm btn-primary mx-1" to={`/details/${product.id}`}  >
             Details
-          </NavLink>
+          </Link>
         </div>
       </div>
     </>
