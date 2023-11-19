@@ -11,6 +11,7 @@ import Details from  './Components/Details/Deatils'
 // import AuthForm from "./Components/Auth/AuthForm";
 import LoginModal from "./Components/Overlays/LoginModal";
 import SignUpModal from "./Components/Overlays/SignUpModal";
+import ForgotPass from "./Components/Auth/ForgotPassword";
 // import Welcome from "./Components/Welcome/Welcome";
 // import AuthForm from "./Components/Auth/AuthForm";
 
@@ -29,6 +30,10 @@ import SignUpModal from "./Components/Overlays/SignUpModal";
             {
               path: "login",
               element: <LoginModal/>,
+            },
+            {
+              path: "resetpassword",
+              element: <ForgotPass/>,
             },
             {
               path: "signup",

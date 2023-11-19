@@ -6,17 +6,17 @@ import { useAuthContext } from "../../Context/AuthContext";
 
 function Header(props) {
   const { cartDetails } = useProduct();
-  const {logoutHandler ,userIsLoggedIn} = useAuthContext();
-    const navigate = useNavigate();
+  const { logoutHandler, userIsLoggedIn } = useAuthContext();
+
+  const navigate = useNavigate();
   const totalNumber = cartDetails.products.reduce((acc, product) => {
     return acc + product.quantity;
   }, 0);
   console.log("total number", totalNumber);
-  const onLogOut = ()=>{
+  const onLogOut = () => {
     logoutHandler();
-    navigate('/login');
-    
-  }
+    navigate("/login");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed top-0 left-0 w-100 z-1">
       <div className="container">
@@ -80,8 +80,24 @@ function Header(props) {
         </div>
       </div>
 
-     { !userIsLoggedIn  ? <Link className="btn btn-primary" to="/login">Login</Link> : <button onClick={onLogOut} className="btn btn-primary mx-1">Logout</button>}
-      <button
+      {!userIsLoggedIn ? (
+        <Link className="btn btn-primary me-3" to="/login">
+          Login
+        </Link>
+      ) : (
+        <button onClick={onLogOut} className="btn btn-primary mx-1">
+          Logout
+        </button>
+      )}
+      {userIsLoggedIn && (
+        <Link
+          to="/resetpassword"
+          className="btn btn-primary"
+        >
+          Forgot Password
+        </Link>
+      )}
+     {userIsLoggedIn &&  <button
         className="btn btn-dark mx-4 position-relative"
         onClick={() => {
           props.onOpen();
@@ -92,7 +108,7 @@ function Header(props) {
           {totalNumber}
           <span className="visually-hidden">unread messages</span>
         </span>
-      </button>
+      </button>}
     </nav>
   );
 }
