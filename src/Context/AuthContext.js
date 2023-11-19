@@ -5,7 +5,7 @@ const AuthContext = createContext({
   userIsLoggedIn : false,
   logginHandler : (token)=>{},
   logoutHandler : ()=>{},
-  onUserLogin : ()=>{}
+  onUserLogin : ()=>{},
 });
 
 
@@ -16,11 +16,10 @@ export const useAuthContext = ()=>{
 
 const AuthContextProvider = (props)=>{
   const localToken = localStorage.getItem("token");
-  const [token ,setToken] = useState(localToken);
-  const [userIsLoggedIn ,setUserIsLoggedIn] = useState(false); // this is not reinitialzed so that we don't need worry about that // this is help full i don't idea onthis bro but remember this bro
-console.log("this",userIsLoggedIn
-  )
- 
+  const [token ,setToken] = useState(localToken);// this is not reinitialzed so that we don't need worry about that // this is help full i don't idea onthis bro but remember this bro
+  const [userIsLoggedIn ,setUserIsLoggedIn] = useState(!!token); 
+console.log("this",userIsLoggedIn)
+//  const userIsLoggedIn = !!token;
 
  
 
@@ -32,7 +31,7 @@ console.log("this",userIsLoggedIn
     // adding the timer to expire the token 
 
     setTimeout(() => {
-      console.log("logout handler is called after the 5 minutes")
+      console.log("logout handler is called after the 5 mintes")
         logoutHandler();
     }, 5000 * 60);
     
